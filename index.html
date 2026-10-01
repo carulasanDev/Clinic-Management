@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f3f7fa">
+  <meta name="description" content="A private, offline-first clinic workspace for patient intake, clinical notes, and prescriptions.">
+  <title>Amity Medical Clinic | Care Desk</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">+</div>
+        <div><div class="brand-name">Amity Medical Dashboard</div><div class="brand-sub">Care Desk</div></div>
+      </div>
+      <div class="topbar-right">
+        <span class="date-label" id="today-label"></span>
+        <span class="network-pill" id="network-pill"><span class="network-dot"></span><span id="network-label">Online</span></span>
+        <img class="profile-mini" id="profile-mini" alt="Doctor profile" hidden>
+        <span class="profile-mini" id="profile-initials" aria-label="Doctor profile">DR</span>
+      </div>
+    </header>
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="side-caption">Workspace</div>
+        <nav class="nav-list" aria-label="Main navigation">
+          <button class="nav-button active" data-tab="queue"><span class="nav-icon">▦</span>Queue<span class="nav-count" id="nav-queue-count">0</span></button>
+          <button class="nav-button" data-tab="checkin"><span class="nav-icon">＋</span>Patient intake</button>
+          <button class="nav-button" data-tab="soap"><span class="nav-icon">▤</span>SOAP workspace</button>
+          <button class="nav-button" data-tab="prescriptions"><span class="nav-icon">℞</span>Prescriptions</button>
+          <button class="nav-button" data-tab="patient-records"><span class="nav-icon">▥</span>Patient records<span class="nav-count" id="nav-record-count">0</span></button>
+          <button class="nav-button" data-tab="profile"><span class="nav-icon">◉</span>Doctor profile</button>
+          <button class="nav-button" data-tab="sync"><span class="nav-icon">↻</span>Sync logs<span class="nav-count" id="nav-sync-count">0</span></button>
+        </nav>
+        <div class="sidebar-note"><strong>Private by design</strong>Patient records stay in this browser. Configure a trusted sync endpoint before sending data to a server.</div>
+      </aside>
+      <main class="main-content">
+        <section class="tab-panel" id="tab-queue"></section>
+        <section class="tab-panel" id="tab-checkin" hidden></section>
+        <section class="tab-panel" id="tab-soap" hidden></section>
+        <section class="tab-panel" id="tab-patient-records" hidden></section>
+        <section class="tab-panel" id="tab-prescriptions" hidden></section>
+        <section class="tab-panel" id="tab-profile" hidden></section>
+        <section class="tab-panel" id="tab-sync" hidden></section>
+      </main>
+    </div>
+  </div>
+  <div class="toast-region" id="toast-region" aria-live="polite"></div>
+  <section id="print-sheet" class="print-sheet" aria-label="Printable prescription"></section>
+  <script src="app.js" defer></script>
+</body>
+</html>
